@@ -26,7 +26,7 @@ I’m documenting my journey as I improve problem-solving skills — one topic a
 ---
 
 ### 📂 Repository Structure
-```text
+```
 DSA-Code-Snippets/
 │
 ├── 01_Basics/
@@ -39,8 +39,7 @@ DSA-Code-Snippets/
 ├── 08_Graphs/
 └── README.md
 
-
----
+```
 
 ### 🌱 Future Plans
 - Add **optimized C++ STL-based** solutions  
@@ -48,20 +47,17 @@ DSA-Code-Snippets/
 - Add **visual explanations** and **problem links**  
 - Eventually extend to **CP and LeetCode patterns**
 
----
 
 ### 🤝 Contributions
 This is primarily a personal learning repo, but suggestions or improvements are welcome!  
 Feel free to open a **pull request** or share your thoughts in the **Issues** tab.
 
----
 
 ### 📫 Contact
 📧 **Himynameisdivyansh@gmail.com**  
-💼 [LinkedIn](https://www.linkedin.com/in/divyansh-garg-b82471325/) *(add your actual link)*  
+💼 [LinkedIn](https://www.linkedin.com/in/divyansh-garg-b82471325/)
 🐙 [GitHub](https://github.com/DivyanshGarg380)
 
----
 
 > “Consistency beats intensity.  
 > Keep coding, keep improving 💪”
