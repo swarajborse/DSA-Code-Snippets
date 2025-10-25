@@ -1,4 +1,4 @@
-//NEXT GREATER NUMERICALLY BALANCED NUMBER(POTD)
+//NEXT GREATER NUMERICALLY BALANCED NUMBER(POTD)-24/10/2025)
 
 #include <iostream>
 #include <vector>    // For using the vector data structure
@@ -61,16 +61,3 @@ public:
         return 1224444;
     }
 };
-
-// Main function to run the code
-int main() {
-    int n;
-    cin >> n; // Get the starting number from the user
-    
-    Solution obj; // Create an object of the Solution class
-    
-    // Call the method and print the result
-    cout << obj.nextBeautifulNumber(n);
-    
-    return 0; // Exit program
-}
