@@ -231,7 +231,7 @@ int outDegree(int u){
     }
     return 
 }
-// Count total Edges -> Same for Directed and Undirected Graph
+// Count total Edges -> if Undirected then divide by 2 . Directed = count Edges
 int countEdges(){
     int total = 0;
     for(int i=0;i<n;i++){
