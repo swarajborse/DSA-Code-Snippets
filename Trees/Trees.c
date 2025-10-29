@@ -194,3 +194,31 @@ int countGreater(struct Node* root, int x){
     int count = root-data > x ? 1:0;
     return countGreater(root->left,x) + countGreater(root->right,x);
 }
+// Path Sum - LC Path Sum 1 
+int hasPathSum(struct Node* root,int sum){
+    if(root == NULL) return 0;
+    if(root->left == NULL && root->right == NULL) return root->data == sum ; // leaf pe aagye
+    return hasPathSum(root->left , sum - root->data) || hasPathSum(root->right, sum- root->data);
+}
+// LC : Path Sum 2 
+int pathSum2(struct Node* root, int sum){ // Find all root-leaf paths where the sum == Target
+    int path[100]; // this is why I hate C
+    pathSum2Finder(root,sum,path,0);
+}
+void pathSum2Finder(struct Node* root, int sum , int path[], int pathLen){
+    if(root == NULL) return;
+    path[pathLen] = root->data;
+    pathLen++;
+    // Leaf node pe aao
+    if(root->left == NULL  && root->right == NULL && sum == root->data){
+        printPath(path,pathLen);
+    }else{ // Fallback
+        pathSum2Finder(root->left , sum - root->data, path, pathLen);
+        pathSum2Finder(root->right, sum - root->data, path, pathLen);
+    }
+}
+void printPath(int path[], int pathLen) {
+    for(int i=0; i<pathLen; i++)
+        printf("%d ", path[i]);
+    printf("\n");
+}
