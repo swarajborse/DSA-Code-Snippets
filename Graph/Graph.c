@@ -214,9 +214,57 @@ void DFS(int start, int n){
     printf("\n");
     // TC: O(vertices(n) + edges(e)) , SC: O(n) -> visited + recursion stack
 }
+// Finding Degree of a Node 
+// Undirected: count "Valid" edges in row of adjacency matrix.
+// Directed: in-degree = count in column, out-degree = count in row.
+int outDegree(int u){
+    int count = 0;
+    for(int v=0;v<n;v++){
+        if(adj[u][v]) count++;
+    }
+    return count;
+}
+int outDegree(int u){
+    int count = 0;
+    for(int v=0;v<n;v++){
+        if(adj[v][u]) count++; // condition reversed here
+    }
+    return 
+}
+// Count total Edges -> Same for Directed and Undirected Graph
+int countEdges(){
+    int total = 0;
+    for(int i=0;i<n;i++){
+        for(int j=i;j<n;j++){
+            if(adj[i][j]) total++;
+        }
+    }
+    return total;
+}
+// Connected Components (Undirected Graph)
+// Just add this line in the condition when you check if(!visited[i])
+// after calling DFSHelperFunc(i,visited) function. add component++;
+
+// Finding Self Loop in a graph
+int selfLoop(){
+    for(int i=0;i<n;i++){
+        if(adj[i][i]) return 1;
+    }
+    return 0;
+}
+// Finding Isolated Nodes -> Degree 0
+void IsolatedDegree(){
+    for(int i=0;i<n;i++){
+        int degree = 0;
+        for(int j=0;j<n;j++){
+            if(adj[i][j]) degree++;
+        }
+        if(degree == 0) printf("Node %d is Isolated :(",i);
+    }
+}
 int main(){
+    // Insert your example inputs here to test this program
     printf("Author: Divyansh Garg , Starman248");
     return 0;
 }
-// If Sharing ahead , remove this Line and then go ahead 
-// printf("Author: Divyansh Garg , Starman248");  
+// Code shared for reference only. Unauthorized use or submission under my Username - Starman248 is prohibited.
