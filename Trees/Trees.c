@@ -1,3 +1,14 @@
+/*
+Author :
+
+███████╗████████╗ █████╗ ██████╗  ███╗   ███╗ █████╗ ███╗   ██╗
+██╔════╝╚══██╔══╝██╔══██╗██╔══██╗ ████╗ ████║██╔══██╗████╗  ██║
+███████╗   ██║   ███████║██████╔╝ ██╔████╔██║███████║██╔██╗ ██║
+╚════██║   ██║   ██╔══██║██║  ██║ ██║╚██╔╝██║██╔══██║██║╚██╗██║
+███████║   ██║   ██║  ██║██║  ██║ ██║ ╚═╝ ██║██║  ██║██║ ╚████║
+╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  STARMAN248
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -126,4 +137,8 @@ void levelOrderDisplay(struct Node* root){
         if(temp->left) queue[rear++] = temp->left;
         if(temp->right) queue[rear++] temp->right;
     }
+}
+// Copying tree into another
+struct Node* copyTree(struct Node* root){
+    
 }
