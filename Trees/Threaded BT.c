@@ -94,36 +94,9 @@ struct Node* insertRight(struct Node* s, struct Node* r) {
     return r;
 }
 
-/* ---------- Main ---------- */
-int main() {
-    // Create head node
-    struct Node* head = createNode('H'); // head/sentinel
-    head->leftThread = FALSE;
-    head->rightThread = TRUE;
-    head->right = head;
-
-    // Root node
-    struct Node* root = createNode('A');
-    head->left = root;
-    root->left = head;
-    root->right = head;
-
-    // Add some nodes
-    struct Node* b = createNode('B');
-    struct Node* c = createNode('C');
-    struct Node* d = createNode('D');
-    struct Node* e = createNode('E');
-    struct Node* f = createNode('F');
-
-    insertLeft(root, b);
-    insertRight(root, c);
-    insertLeft(b, d);
-    insertRight(b, e);
-    insertRight(c, f);
-
-    printf("Inorder traversal using threads:\n");
-    inorder(head);  // Output: D B E A C F
-    printf("\n");
-
+int main(){
+    // Insert your example inputs here to test this program
+    printf("Author: Divyansh Garg , Starman248");
     return 0;
 }
+// Code shared for reference only. Unauthorized use or submission under my Username - Starman248 is prohibited.
