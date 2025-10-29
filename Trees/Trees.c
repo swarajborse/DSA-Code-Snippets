@@ -222,3 +222,34 @@ void printPath(int path[], int pathLen) {
         printf("%d ", path[i]);
     printf("\n");
 }
+// Left / Right Side view of a Tree
+void leftView(struct Node* root){
+    if(root == NULL) return;
+    struct Node* queue[100];
+    int front = 0, rear = 0;
+    queue[rear++] = root;
+    while(front < rear){
+        int level = rear - front;
+        for(int i=0; i< level; i++){
+         struct Node* temp = queue[front++];
+         if(i==0) printf("%d ",temp->data);
+         if(temp->left) queue[rear++] =  temp->left;
+         if(temp->right) queue[rear++] = temp->right
+        }
+    }
+}
+void rightView(struct Node* root){
+    if(root == NULL) return;
+    struct Node* queue[100];
+    int front = 0, rear = 0;
+    queue[rear++] = root;
+    while(front < rear){
+        int level = rear - front;
+        for(int i=0; i< level; i++){
+         struct Node* temp = queue[front++];
+         if(i==level-1) printf("%d ",temp->data);
+         if(temp->left) queue[rear++] =  temp->left;
+         if(temp->right) queue[rear++] = temp->right;
+        }
+    }
+}
