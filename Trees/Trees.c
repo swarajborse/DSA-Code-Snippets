@@ -140,5 +140,17 @@ void levelOrderDisplay(struct Node* root){
 }
 // Copying tree into another
 struct Node* copyTree(struct Node* root){
-    
+    if(root == NULL) return NULL;
+    struct Node* newNode = createNode(root->data);
+    newNode->left = copyTree(root->left);
+    newNode->right = copyTree(root->right);
+    return newNode;
+}
+// Checking if two Trees are identical --> aa sakta hai!!! karle bsdk
+int isIdentical(struct Node* t1 , struct Node* t2){
+    if(t1 == NULL && t2 == NULL) return 1;  
+    if( t1 == NULL || t2 == NULL) return 0; // identical nhi rahe
+    return t1->data == t2->data && isIdentical(t1->left,t2->left) && isIdentical(t1->right,t2->right);
+    // in case of symmetry , change last return statement too : 
+   // t1->data == t2->data && isIdentical(t1->left,t2->right) && isIdentical(t1->right,t2->left);
 }
