@@ -154,3 +154,43 @@ int isIdentical(struct Node* t1 , struct Node* t2){
     // in case of symmetry , change last return statement too : 
    // t1->data == t2->data && isIdentical(t1->left,t2->right) && isIdentical(t1->right,t2->left);
 }
+// Printing Ancestors of a given node
+int printAncestors(struct Node* root , int target){
+    if(root == NULL) return 0;
+    if(root->data == target) return 1;
+    if(printAncestors(root->left,target) || printAncestors(root->right,target)){
+        printf("%d ",root->data);
+        return 1;
+    }
+    return 0; // fallback
+}
+// Sub Variation -> Lowest Common Ancestor -> Find the first root where the path diverges ( left and right) between nodes p and q 
+struct Node* lowestCommonAncestor(struct Node* root, struct Node* p, struct Node* q ){
+    if(root == NULL) return NULL;
+    int curr = root->val;
+    if(curr < p->val && curr > q->val) return lowestCommonAncestor(root->right,p,q);
+    if(curr > p->val && curr < q->val) return lowestCommonAncestor(root->left,p,q);
+    return root;
+}
+// Sum of All Nodes/Leaf Nodes
+int sumAll(struct Node* root){
+    if(root == NULL) return 0;
+    return root->data + sumAll(root->left) + sumAll(root->right);
+}
+int sumLeaf(struct Node* root){
+    if(root == NULL) return 0;
+    if(root->left == NULL && root->right == NULL) return root->data;
+    return sumLeaf(root->left) + sumLeaf(root->right);
+}
+// Sum of Nodes at a given Level -> possibility hai
+int sumAtLevel(struct Node* root, int level){
+    if(root == NULL) return 0;
+    if(level == 1) return root->data;
+    return sumAtLevel(root->left,level-1) + sumAtLevel(root->right,level-1);
+}
+// Count Nodes Greater than X 
+int countGreater(struct Node* root, int x){
+    if(root == NULL) return 0;
+    int count = root-data > x ? 1:0;
+    return countGreater(root->left,x) + countGreater(root->right,x);
+}
