@@ -104,6 +104,48 @@ void DFSHelper(int u,int visited[]){
     // TC: O(n^2) , SC: O(n); 
    // Can be optimized with Adjacency List
 }
+// Detecting Cycle in Undirected Graph using DFS
+int cycleUndirectedGraphHelperFunc(int u, int visited[], int parent){
+    visited[u] = 1;
+    for(int v=0;v<n;v++){
+        id(adj[u][v]){
+            if(!visited[v]){
+                if(cycleUndirectedGraphHelperFunc(v,visited,u)) return 1;
+            }else if(v!=parent) return 1;
+        }
+    }
+    return 0;
+}
+int cycleUnidirected(){
+    int visited[10] = {0};
+    for(int i=0;i<n;i++){
+        if(!visited[i] && cycleUndirectedGraphHelperFunc(i,visited,-1))
+            return 1;
+    }
+    return 0;
+}
+// Detecting Cycle in Directed Graph --> Use Recursion Stack
+int cycleDirectGraphHelperFunc(int u, int visited[], int recStack[]){
+    visited[u] = 1;
+    recStack[u] = 1;
+    for(int v=0;v<n;v++){
+        if(adj[u][v]){
+            if(!visited[v] && cycleDirectGraphHelperFunc(v,visited,recStack))
+                return 1;
+            else if(recStack[v]) return 1;
+        }
+    }
+    recStack[u] = 0;
+    return 0;
+}
+int cycleDirected(){
+    int visited[10] = {0}, recStack[10] = {0};
+    for(int i=0;i<n;i++){
+        if(!visited[i] && cycleDirectGraphHelperFunc(i,visited,recStack));
+            return 1;
+    }
+    return 0;
+}
 int main(){
     printf("Author: Divyansh Garg , Starman248");
     return 0;
