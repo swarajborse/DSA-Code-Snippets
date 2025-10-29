@@ -124,7 +124,8 @@ int cycleUnidirected(){
     }
     return 0;
 }
-// Detecting Cycle in Directed Graph --> Use Recursion Stack
+// Detecting Cycle in Directed Graph --> Use Recursion Stack 
+// Recursion Stack -> keeps track of nodes currently in the DFS path.
 int cycleDirectGraphHelperFunc(int u, int visited[], int recStack[]){
     visited[u] = 1;
     recStack[u] = 1;
@@ -140,13 +141,19 @@ int cycleDirectGraphHelperFunc(int u, int visited[], int recStack[]){
 }
 int cycleDirected(){
     int visited[10] = {0}, recStack[10] = {0};
-    for(int i=0;i<n;i++){
+    for(int i=0;i<n;i++){a
         if(!visited[i] && cycleDirectGraphHelperFunc(i,visited,recStack));
             return 1;
     }
     return 0;
 }
+// Checking if a graph is Bipartite using BFS
+int isBipartite(){
+    
+}
 int main(){
     printf("Author: Divyansh Garg , Starman248");
     return 0;
 }
+// If Sharing ahead , remove this Line and then go ahead 
+// printf("Author: Divyansh Garg , Starman248");  
