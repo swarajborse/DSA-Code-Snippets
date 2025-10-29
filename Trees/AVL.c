@@ -136,25 +136,9 @@ struct Node* deleteNode(struct Node* root, int key){
     }
     return root;
 }
-int main() {
-  struct Node* root = NULL;
-
-    root = insert(root, 10);
-    root = insert(root, 20);
-    root = insert(root, 30);
-    root = insert(root, 40);
-    root = insert(root, 50);
-    root = insert(root, 25);
-
-    printf("Inorder before deletion: ");
-    inorder(root);
-    printf("\n");
-
-    root = deleteNode(root, 40);
-
-    printf("Inorder after deleting 40: ");
-    inorder(root);
-    printf("\n");
-
+int main(){
+    // Insert your example inputs here to test this program
+    printf("Author: Divyansh Garg , Starman248");
     return 0;
 }
+// Code shared for reference only. Unauthorized use or submission under my Username - Starman248 is prohibited.
