@@ -108,7 +108,7 @@ void DFSHelper(int u,int visited[]){
 int cycleUndirectedGraphHelperFunc(int u, int visited[], int parent){
     visited[u] = 1;
     for(int v=0;v<n;v++){
-        id(adj[u][v]){
+        if(adj[u][v]){
             if(!visited[v]){
                 if(cycleUndirectedGraphHelperFunc(v,visited,u)) return 1;
             }else if(v!=parent) return 1;
@@ -149,7 +149,70 @@ int cycleDirected(){
 }
 // Checking if a graph is Bipartite using BFS
 int isBipartite(){
+    int color[10];
+    for(int i=0;i<n;i++) color[i]=-1; // -1 = uncolored
+    int queue[10],front=0,rear=0;
     
+    for(int start=0;start<n;start++){
+        if(color[start]!=-1) continue;
+        color[start]=0;
+        queue[rear++]=start;
+
+        while(front<rear){
+            int u=queue[front++];
+            for(int v=0;v<n;v++){
+                if(adj[u][v]){
+                    if(color[v]==-1){
+                        color[v]=1-color[u];
+                        queue[rear++]=v;
+                    } else if(color[v]==color[u]) return 0; // not bipartite
+                }
+            }
+        }
+    }
+    return 1;
+}
+// BFS using Adjacency List
+void BFS(int start){
+    int visited[10] = {0};
+    int queue[10] , front = 0, rear = 0;
+    visited[start] = 1;
+    queue[rear++] = start;
+    while(front < rear){
+        int u = queue[front++];
+        printf("%d ",u);
+        Node* temp = adjList[u];
+        while(temp!=NULL){
+            int v = temp->vertex;
+            if(!visited[v]){
+                visited[v] = 1;
+                queue[rear++] = v;
+            }
+            temp = temp->next;
+        }
+    }
+    printf("\n");
+    // TC: O(vertices(n) + edges(e)) , SC: O(n) -> visited + queue
+}
+// DFS using Adjacency List --> Recursive :(
+void DFSHelperFunc(int u, int visited[]){
+    visited[u] = 1;
+    printf("%d ",u);
+    Node* temp = adjList[u];
+    while(temp!=NULL){
+        int v = temp->vertex;
+        if(!visited[v]){
+            visited[v] = 1;
+            DFSHelperFunc(v,visited);
+        }
+        temp = temp->next;
+    }
+}
+void DFS(int start, int n){
+    int visited[10] = {0};
+    DFSHelperFunc(start,visited);
+    printf("\n");
+    // TC: O(vertices(n) + edges(e)) , SC: O(n) -> visited + recursion stack
 }
 int main(){
     printf("Author: Divyansh Garg , Starman248");
