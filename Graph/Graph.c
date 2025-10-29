@@ -288,6 +288,15 @@ int shortestDistance(int start){
         printf("Distance from %d to %d = %d\n", start, i, dist[i]);
     }
 }
+// Printing Nodes Reachable from a given Node -> Use BFS/DFS
+void reachableNodes(int start){
+    int visited[10] = {0};
+     DFSHelperFunc(start,visited); // Call DFS or call BFS.
+     printf("Nodes reachable from %d: ",start);
+     for(int i=0;i<n;i++){
+        if(visited[i]) printf("%d ",i);
+     }
+}
 int main(){
     // Insert your example inputs here to test this program
     printf("Author: Divyansh Garg , Starman248");
