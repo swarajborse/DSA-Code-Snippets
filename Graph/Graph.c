@@ -262,6 +262,32 @@ void IsolatedDegree(){
         if(degree == 0) printf("Node %d is Isolated :(",i);
     }
 }
+// Check Connectivity -> Can you go from Node A to Node B ?
+int isConnected(int start, int target){
+    int visited[10] = {0};
+    DFSHelperFunc(start,visited); // Call DFS
+    return visited[target]; // Returns 1 or 0 depending if its visited or not
+}
+// Shortest Path in an Unweighted Graph -> Use BFS to avoid recursion :)
+int shortestDistance(int start){
+    int visited[10] = {0}, dist[10];
+    for(int i=0;i<n;i++) dist[i] = -1;
+    int queue[10] , front = 0, rear = 0;
+    queue[rear++] = start, visited[start] = 1; dist[start] = 0;
+    while(front < rear){
+        int u = queue[front++];
+        for(int v=0;v<n;v++){
+            if(adj[u][v] && !visited[v]){
+                visited[v] = 1;
+                dist[v] = dist[u] + 1;
+                queue[rear++] = v;
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        printf("Distance from %d to %d = %d\n", start, i, dist[i]);
+    }
+}
 int main(){
     // Insert your example inputs here to test this program
     printf("Author: Divyansh Garg , Starman248");
