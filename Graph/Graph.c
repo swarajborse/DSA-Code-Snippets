@@ -224,7 +224,7 @@ int outDegree(int u){
     }
     return count;
 }
-int outDegree(int u){
+int inDegree(int u){
     int count = 0;
     for(int v=0;v<n;v++){
         if(adj[v][u]) count++; // condition reversed here
@@ -303,3 +303,4 @@ int main(){
     return 0;
 }
 // Code shared for reference only. Unauthorized use or submission under my Username - Starman248 is prohibited.
+
