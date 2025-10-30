@@ -1,3 +1,7 @@
+# Code shared for reference only for all CP contests ( CodeChef , CodeForces , Leetcode ) 
+# Unauthorized use or submission under the name "Starman248" is strictly forbidden.
+# Any such submissions found will be tracked down and reported instantly. I am watching 👀
+
 # 🧩 DSA Code Snippets
 
 Welcome to my collection of **Data Structures & Algorithms** solutions from **Striver’s A2Z DSA Sheet**.  
