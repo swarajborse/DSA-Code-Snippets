@@ -99,7 +99,7 @@ void inorder(struct node* root) {
 }
 // function to Mirror/Reverse the Tree
 void mirror(struct Node* root){
-    if(root == NULL) reutn;
+    if(root == NULL) return;
     struct Node* temp = root->left;
     root->left = root->right;
     root->right = temp;
